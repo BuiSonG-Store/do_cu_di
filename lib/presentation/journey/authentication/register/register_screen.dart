@@ -1,7 +1,6 @@
 import 'package:do_cu_di/common/const/image_const.dart';
 import 'package:do_cu_di/common/navigation/route_names.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../common/const/logo_const.dart';
 import '../../../../common/const/string_const.dart';
 import '../../../../common/utils/validate_ultils.dart';
@@ -38,7 +37,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
       backgroundColor: AppColors.white,
       customAppBar: CustomAppBar(
         title: StringConst.register,
-        iconLeftTap: () => Routes.instance.pop(),
+        iconLeftTap: () {
+          Routes.instance.pop();
+          /// test show snackBar
+          // injector<SnackBarBloc>().add(ShowSnackbarEvent(
+          //   type: SnackBarType.warning,
+          //   content: "mày to gan đấy"
+          // ));
+        },
       ),
       body: Container(
         color: AppColors.white,

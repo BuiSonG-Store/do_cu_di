@@ -8,10 +8,10 @@ class SnackBarBloc extends Bloc<SnackbarEvent, SnackBarState> {
   SnackBarBloc() : super(InitialSnackbarState()){
     on<SnackbarEvent>((event, emit) {
       if (event is ShowSnackbarEvent) {
-        ShowSnackBarState(
+        emit(ShowSnackBarState(
             mess: event.content,
             type: event.type,
-            duration: event.duration ?? duration);
+            duration: event.duration ?? duration));
       }
     });
   }

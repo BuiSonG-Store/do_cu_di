@@ -10,13 +10,13 @@ class LoadingBloc extends Bloc<LoadingEvent, LoadingState> {
     on<LoadingEvent>((event, emit){
       switch (event.runtimeType) {
         case StartLoading:
-          Loading();
+          emit(Loading());
           break;
         case FinishLoading:
-          Loaded();
+          emit(Loaded());
           break;
         case ShowNewYearCardEvent:
-          ShowPopUpState(event.showNewYear);
+          emit(ShowPopUpState(event.showNewYear));
           break;
       }
     });

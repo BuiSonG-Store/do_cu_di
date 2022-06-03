@@ -8,20 +8,20 @@ class EventBusBloc extends Bloc<EventBusEvent, EventBusState> {
    on<EventBusEvent>((event, emit) {
      switch (event.runtimeType) {
        case EventBusCheckCallEvent:
-         EventBusCheckCallState();
+         emit(EventBusCheckCallState());
          break;
        case EventBusShowCallEvent:
-         EventBusShowCallState();
+         emit(EventBusShowCallState());
          break;
        case EventBusRequestInitDataCartEvent:
-         EventBusRequestInitDataCartState();
+         emit(EventBusRequestInitDataCartState());
          break;
        case EventBusRequestInitDataNotificationEvent:
-         EventBusRequestInitDataNotificationState(
-             count: (event as EventBusRequestInitDataNotificationEvent).count);
+         emit(EventBusRequestInitDataNotificationState(
+             count: (event as EventBusRequestInitDataNotificationEvent).count));
      break;
      case EventBusRequestInitDataPersonalEvent:
-       EventBusRequestInitDataPersonalState();
+       emit(EventBusRequestInitDataPersonalState());
      break;
    }
    });

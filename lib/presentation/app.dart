@@ -32,20 +32,20 @@ class _AppState extends State<App> {
 
   void _mapListenerSnackBarState(BuildContext context, SnackBarState state) {
     if (state is ShowSnackBarState) {
-      var icon;
-      var color;
-      var title;
+      Icon icon;
+      Color color;
+      String title;
       switch (state.type) {
         case SnackBarType.success:
-          icon = Icon(
+          icon = const Icon(
             Icons.check_circle_outline,
             color: Colors.white,
           );
-          color = Color(0xff33B44A);
+          color = const Color(0xff33B44A);
           title = "Success";
           break;
         case SnackBarType.warning:
-          icon = Icon(
+          icon = const Icon(
             Icons.error_outline,
             color: Colors.white,
           );
@@ -53,7 +53,7 @@ class _AppState extends State<App> {
           title = "Warning";
           break;
         default:
-          icon = Icon(
+          icon = const Icon(
             Icons.error_outline,
             color: Colors.white,
           );
@@ -64,7 +64,7 @@ class _AppState extends State<App> {
 
       showFlash(
         context: Routes.instance.navigatorKey.currentContext!,
-        duration: state.duration ?? Duration(milliseconds: 3000),
+        duration: state.duration ?? const Duration(milliseconds: 3000),
         builder: (context, controller) {
           return Flash.bar(
             controller: controller,
@@ -111,7 +111,7 @@ class _AppState extends State<App> {
             primaryColor: AppColors.primaryColor,
             fontFamily: 'Roboto',
             canvasColor: Colors.transparent,
-            bottomAppBarColor: Color(0xff989898),
+            bottomAppBarColor: const Color(0xff989898),
             platform: TargetPlatform.iOS,
             pageTransitionsTheme: const PageTransitionsTheme(builders: {
               TargetPlatform.android: CupertinoPageTransitionsBuilder(),
@@ -123,7 +123,7 @@ class _AppState extends State<App> {
             child: MultiBlocListener(
               listeners: _getBlocListener(context),
               child: GestureDetector(
-                child: widget ?? SizedBox(),
+                child: widget ?? const SizedBox(),
                 onTap: () {
                   FocusManager.instance.primaryFocus?.unfocus();
                 },
