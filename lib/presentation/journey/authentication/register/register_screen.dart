@@ -39,11 +39,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         title: StringConst.register,
         iconLeftTap: () {
           Routes.instance.pop();
-          /// test show snackBar
-          // injector<SnackBarBloc>().add(ShowSnackbarEvent(
-          //   type: SnackBarType.warning,
-          //   content: "mày to gan đấy"
-          // ));
         },
       ),
       body: Container(
