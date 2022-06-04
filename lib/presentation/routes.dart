@@ -1,5 +1,5 @@
 import 'package:do_cu_di/presentation/journey/authentication/register/register_screen.dart';
-import 'package:do_cu_di/presentation/journey/feature/screens/container_screen.dart';
+import 'package:do_cu_di/presentation/journey/feature/container/container_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -4,4 +4,5 @@ class IconConst {
   static const String back = '${_path}back.png';
   static const String show = '${_path}show.png';
   static const String hide = '${_path}hide.png';
+  static const String imagePlaceHolder = '${_path}image_place_holder.svg';
 }

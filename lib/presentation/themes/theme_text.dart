@@ -7,6 +7,11 @@ class AppTextTheme {
     fontWeight: FontWeight.w400,
     color: AppColors.grey7,
   );
+  static const style10px = TextStyle(
+    fontSize: 10.0,
+    fontWeight: FontWeight.w400,
+    color: AppColors.white,
+  );
   static const style12pxGrey = TextStyle(
     fontSize: 12.0,
     fontWeight: FontWeight.w400,
