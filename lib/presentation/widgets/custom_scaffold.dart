@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common/const/logo_const.dart';
-import '../../common/utils/ScreenUtil.dart';
+import '../../common/utils/screen_utils.dart';
 import '../../common/utils/common_util.dart';
 import '../routes.dart';
 import '../themes/theme_color.dart';
@@ -37,7 +37,7 @@ class CustomScaffold extends StatelessWidget {
       body: Column(
         children: [
           customAppBar ??
-              (appbarWidget ?? SizedBox(height: ScreenUtil.statusBarHeight)),
+              (appbarWidget ?? SizedBox(height: DCDScreenUtil.statusBarHeight)),
           const Divider(height: 1, color: AppColors.grey5),
           Expanded(
             child: GestureDetector(
@@ -48,7 +48,7 @@ class CustomScaffold extends StatelessWidget {
                     : () {},
                 child: body ?? const SizedBox()),
           ),
-          SizedBox(height: paddingBottom ? ScreenUtil.bottomBarHeight : 0),
+          SizedBox(height: paddingBottom ? DCDScreenUtil.bottomBarHeight : 0),
         ],
       ),
     );
@@ -79,8 +79,8 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(top: (ScreenUtil.statusBarHeight)),
-      height: defaultAppbar + (ScreenUtil.statusBarHeight),
+      padding: EdgeInsets.only(top: (DCDScreenUtil.statusBarHeight)),
+      height: defaultAppbar + (DCDScreenUtil.statusBarHeight),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

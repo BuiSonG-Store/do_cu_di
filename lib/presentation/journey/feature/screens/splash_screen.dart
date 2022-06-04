@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ProfileModel.fromJson(json.decode(dataProfile!));
       Routes.instance.navigateAndRemove(RouteName.ContainerScreen);
     } else {
-      Routes.instance.navigateAndRemove(RouteName.loginScreen);
+      Routes.instance.navigateAndRemove(RouteName.ContainerScreen);
     }
   }
 

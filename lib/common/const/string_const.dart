@@ -34,4 +34,8 @@ class StringConst {
   static const String or = 'Hoặc';
   static const String youHaveAcc = 'Bạn đã có tài khoản';
   static const String nameUser = 'Tên của bạn';
+  static const String newsGift = 'Cho tặng';
+  static const String receipts = 'Lượt nhận';
+  static const String liquidation = 'Thanh lý';
+  static const String liquidationOrder = 'Đơn thanh lý';
 }

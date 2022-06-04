@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 const defaultAppBarHeight = 48.0;
 
-class ScreenUtil {
-  static late ScreenUtil _instance;
+class DCDScreenUtil {
+  static late DCDScreenUtil _instance;
   static const int? defaultWidth = 414;
   static const int? defaultHeight = 896;
 
@@ -23,17 +23,17 @@ class ScreenUtil {
   static double? _bottomBarHeight = 0;
   static double? _textScaleFactor = 0;
 
-  factory ScreenUtil() {
+  factory DCDScreenUtil() {
     return _instance;
   }
 
-  ScreenUtil._();
+  DCDScreenUtil._();
 
   static void init(BuildContext context,
       {num width = defaultWidth ?? 0,
       num height = defaultHeight ?? 0,
       bool allowFontScaling = false}) {
-    _instance = ScreenUtil._();
+    _instance = DCDScreenUtil._();
     _instance.uiWidthPx = width;
     _instance.uiHeightPx = height;
     _instance.allowFontScaling = allowFontScaling;
