@@ -18,29 +18,30 @@ class NumberTableWidget extends StatefulWidget {
 class _NumberTableWidgetState extends State<NumberTableWidget> {
   @override
   Widget build(BuildContext context) {
-    final double widthCommunityItem = 83.w;
+    final double widthCommunityItem =
+        (MediaQuery.of(context).size.width - 73) / 4;
 
     return Container(
-      padding: EdgeInsets.all(12),
-      margin: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.all(12),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(17),
         boxShadow: [
           BoxShadow(
-              color: AppColors.black.withOpacity(0.03),
+              color: AppColors.black.withOpacity(0.05),
               spreadRadius: 6,
               blurRadius: 7)
         ],
       ),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Những con số ấn tượng',
             style: AppTextTheme.normalBlack,
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Row(
@@ -80,6 +81,14 @@ class _NumberTableWidgetState extends State<NumberTableWidget> {
                 data: '99',
               ),
             ],
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 22, right: 22, top: 22),
+            child: Text(
+              'Cảm ơn tất cả các bạn đã cùng tạo nên những con số tuyệt vời này!',
+              textAlign: TextAlign.center,
+              style: AppTextTheme.style10pxBlack,
+            ),
           ),
         ],
       ),

@@ -62,6 +62,7 @@ class CustomAppBar extends StatelessWidget {
   final bool stylePrimary;
   final bool hasShadow;
   final Widget? widgetRight;
+  final Widget? widgetRightTwo;
   final Widget? icon;
 
   const CustomAppBar({
@@ -73,6 +74,7 @@ class CustomAppBar extends StatelessWidget {
     this.hasShadow = true,
     this.widgetRight,
     this.showIconLeft = true,
+    this.widgetRightTwo,
   }) : super(key: key);
 
   @override
@@ -116,10 +118,14 @@ class CustomAppBar extends StatelessWidget {
               style: AppTextTheme.mediumBlack,
             ),
           ),
+          widgetRightTwo ??
+              const SizedBox(
+                width: 60,
+              ),
           widgetRight ??
               const SizedBox(
                 width: 60,
-              )
+              ),
         ],
       ),
     );

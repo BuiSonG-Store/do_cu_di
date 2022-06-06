@@ -32,6 +32,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
         children: [
           HomeScreen(),
           Container(color: AppColors.red),
+          Container(color: AppColors.white),
           Container(color: AppColors.black),
         ],
       ),
@@ -44,25 +45,58 @@ class _ContainerScreenState extends State<ContainerScreen> {
           SizedBox(
             height: 40,
             child: Column(
-              children: const [
-                Icon(
+              children: [
+                const Icon(
                   Icons.home,
-                  size: 25,
+                  size: 23,
                   color: AppColors.white,
                 ),
-                Text('Trang chủ', style: AppTextTheme.style10px)
+                Text('Trang chủ',
+                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
               ],
             ),
           ),
-          Icon(
-            Icons.list,
-            size: 30,
-            color: AppColors.white,
+          SizedBox(
+            height: 40,
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.playlist_add,
+                  size: 23,
+                  color: AppColors.white,
+                ),
+                Text('Đăng tin',
+                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
+              ],
+            ),
           ),
-          Icon(
-            Icons.compare_arrows,
-            size: 30,
-            color: AppColors.white,
+          SizedBox(
+            height: 40,
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.language,
+                  size: 23,
+                  color: AppColors.white,
+                ),
+                Text('Bảng tin',
+                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 40,
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.person,
+                  size: 23,
+                  color: AppColors.white,
+                ),
+                Text('Cá nhân',
+                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
+              ],
+            ),
           ),
         ],
         onTap: onTapped,

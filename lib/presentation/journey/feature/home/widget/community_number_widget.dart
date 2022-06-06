@@ -53,8 +53,8 @@ class _CommunityNumberWidgetState extends State<CommunityNumberWidget> {
                 const SizedBox(height: 4),
                 Image.asset(
                   widget.icon,
-                  width: 48.w,
-                  height: 48.w,
+                  width: 40.w,
+                  height: 40.w,
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -75,7 +75,7 @@ class _CommunityNumberWidgetState extends State<CommunityNumberWidget> {
                   widget.des,
                   textAlign: TextAlign.center,
                   style: AppTextTheme.style10pxBlack
-                      .copyWith(fontWeight: FontWeight.w700, fontSize: 11),
+                      .copyWith(fontWeight: FontWeight.w500, fontSize: 11),
                 ),
               ),
             ],
