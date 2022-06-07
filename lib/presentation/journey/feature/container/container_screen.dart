@@ -3,7 +3,9 @@ import 'package:do_cu_di/presentation/themes/theme_text.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
+import '../community/comunity_screen.dart';
 import '../home/home_screen.dart';
+import '../personal/personal_screen.dart';
 
 class ContainerScreen extends StatefulWidget {
   const ContainerScreen({Key? key}) : super(key: key);
@@ -32,15 +34,15 @@ class _ContainerScreenState extends State<ContainerScreen> {
         children: [
           HomeScreen(),
           Container(color: AppColors.red),
-          Container(color: AppColors.white),
-          Container(color: AppColors.black),
+          CommunityScreen(),
+          PersonalScreen(),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: AppColors.white,
         color: AppColors.logoSkyBlue,
         buttonBackgroundColor: AppColors.logoSkyBlue,
-        height: 50,
+        height: 60,
         items: [
           SizedBox(
             height: 40,

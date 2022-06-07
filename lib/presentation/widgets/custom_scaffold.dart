@@ -34,22 +34,25 @@ class CustomScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor ?? AppColors.white,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? true,
-      body: Column(
-        children: [
-          customAppBar ??
-              (appbarWidget ?? SizedBox(height: DCDScreenUtil.statusBarHeight)),
-          const Divider(height: 1, color: AppColors.grey5),
-          Expanded(
-            child: GestureDetector(
-                onTap: autoDismissKeyboard
-                    ? () {
-                        CommonUtil.dismissKeyBoard(context);
-                      }
-                    : () {},
-                child: body ?? const SizedBox()),
-          ),
-          SizedBox(height: paddingBottom ? DCDScreenUtil.bottomBarHeight : 0),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            customAppBar ??
+                (appbarWidget ??
+                    SizedBox(height: DCDScreenUtil.statusBarHeight)),
+            const Divider(height: 1, color: AppColors.grey5),
+            Expanded(
+              child: GestureDetector(
+                  onTap: autoDismissKeyboard
+                      ? () {
+                          CommonUtil.dismissKeyBoard(context);
+                        }
+                      : () {},
+                  child: body ?? const SizedBox()),
+            ),
+            SizedBox(height: paddingBottom ? DCDScreenUtil.bottomBarHeight : 0),
+          ],
+        ),
       ),
     );
   }

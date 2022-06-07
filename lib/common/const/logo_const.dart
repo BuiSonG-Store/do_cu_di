@@ -10,4 +10,5 @@ class IconConst {
   static const String community = '${_path}liquidation.png';
   static const String order = '${_path}order.png';
   static const String share_dashboard_old = '${_path}share_old.png';
+  static const String share_activity = '${_path}activity.png';
 }

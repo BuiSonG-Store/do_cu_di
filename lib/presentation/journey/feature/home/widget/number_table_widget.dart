@@ -53,7 +53,7 @@ class _NumberTableWidgetState extends State<NumberTableWidget> {
                 height: widthCommunityItem,
                 icon: IconConst.share_dashboard_old,
                 color: AppColors.logoPink,
-                des: StringConst.newsGift,
+                des: StringConst.gift,
                 data: '99',
               ),
               CommunityNumberWidget(

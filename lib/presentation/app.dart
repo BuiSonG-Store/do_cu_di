@@ -10,7 +10,6 @@ import '../common/bloc/snackbar_bloc/snackbar_bloc.dart';
 import '../common/bloc/snackbar_bloc/snackbar_state.dart';
 import '../common/const/app_const.dart';
 import '../common/navigation/route_names.dart';
-import '../common/utils/screen_utils.dart';
 import 'injector_container.dart';
 
 class App extends StatefulWidget {
@@ -59,7 +58,7 @@ class _AppState extends State<App> {
             Icons.error_outline,
             color: Colors.white,
           );
-          color = Color(0xffF63E43);
+          color = const Color(0xffF63E43);
           title = "Failed";
           break;
       }
@@ -87,7 +86,7 @@ class _AppState extends State<App> {
               ),
               content: Text(
                 state.mess!,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               icon: icon,
               shouldIconPulse: true,
@@ -113,7 +112,7 @@ class _AppState extends State<App> {
           initialRoute: RouteName.splashScreen,
           theme: ThemeData(
               primaryColor: AppColors.primaryColor,
-              fontFamily: 'Roboto',
+              fontFamily: 'Nunito',
               canvasColor: Colors.transparent,
               bottomAppBarColor: const Color(0xff989898),
               platform: TargetPlatform.iOS,

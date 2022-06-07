@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 
 import '../../presentation/injector_container.dart';
 import '../../presentation/routes.dart';
@@ -11,12 +12,18 @@ import '../exceptions/connect_exception.dart';
 import '../exceptions/timeout_exception.dart';
 import '../exceptions/token_expired_exception.dart';
 import '../navigation/route_names.dart';
+import '../network/configs.dart';
 import 'log_util.dart';
 
 class CommonUtil {
   static void dismissKeyBoard(BuildContext context) {
     FocusScope.of(context).requestFocus(FocusNode());
   }
+
+  static bool isNull(dynamic input) {
+    return ["", null, false, 0].contains(input);
+  }
+
   static String textHelloInHome() {
     int hour = DateTime.now().hour;
     if (hour >= 4 && hour < 12) {
@@ -30,6 +37,7 @@ class CommonUtil {
     }
     return StringConst.goodEvening;
   }
+
   static bool validateAndSave(GlobalKey<FormState> key) {
     FormState? form = key.currentState;
     if (form?.validate() ?? false) {
@@ -68,5 +76,20 @@ class CommonUtil {
     if (showSnackbar && snackBarBloc != null) {
       snackBarBloc.add(ShowSnackbarEvent(content: exceptionName ?? message));
     }
+  }
+
+  /// yyyy-MM-ddTHH:mm:ss => HH:mm - dd/MM/yyyy
+  static dynamic convertDateTime(String? input,
+      {bool outputDateTime = false, String? format}) {
+    if (input?.isEmpty ?? true) {
+      return null;
+    }
+    DateFormat dateFormat = DateFormat(format ?? "yyyy-MM-ddTHH:mm:ss");
+    DateFormat dateFormatText = DateFormat("HH:mm - dd/MM/yyyy");
+    DateTime dateTime = dateFormat.parse(input!);
+    if (outputDateTime == true) {
+      return dateTime;
+    }
+    return dateFormatText.format(dateTime);
   }
 }

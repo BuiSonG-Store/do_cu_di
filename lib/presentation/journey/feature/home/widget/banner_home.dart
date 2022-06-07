@@ -23,45 +23,51 @@ class _BannerHomeWidgetState extends State<BannerHomeWidget> {
   int _currentSlideIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            initialPage: 0,
-            autoPlay: true,
-            autoPlayAnimationDuration: const Duration(seconds: 3),
-            viewportFraction: 1.0,
-            reverse: false,
-            enableInfiniteScroll: true,
-            onPageChanged: (index, reason) {
-              setState(() {
-                _currentSlideIndex = index;
-              });
-            },
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(9)),
+      margin: const EdgeInsets.all(12),
+      child: Stack(
+        children: [
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 148,
+              initialPage: 0,
+              autoPlay: true,
+              autoPlayAnimationDuration: const Duration(seconds: 3),
+              viewportFraction: 1.0,
+              reverse: false,
+              enableInfiniteScroll: true,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _currentSlideIndex = index;
+                });
+              },
+            ),
+            items: imgList
+                .map((item) => CustomImageNetwork(
+                      url: item,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      border: 9,
+                    ))
+                .toList(),
           ),
-          items: imgList
-              .map((item) => CustomImageNetwork(
-                    url: item,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ))
-              .toList(),
-        ),
-        Positioned(
-            bottom: 12,
-            right: 12,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: AppColors.white.withOpacity(0.6),
-              ),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-                child: Text('${_currentSlideIndex + 1}/${imgList.length}'),
-              ),
-            ))
-      ],
+          Positioned(
+              bottom: 12,
+              right: 12,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: AppColors.white.withOpacity(0.6),
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                  child: Text('${_currentSlideIndex + 1}/${imgList.length}'),
+                ),
+              ))
+        ],
+      ),
     );
   }
 }
