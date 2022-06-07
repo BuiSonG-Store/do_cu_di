@@ -42,66 +42,65 @@ class _ContainerScreenState extends State<ContainerScreen> {
         backgroundColor: AppColors.white,
         color: AppColors.logoSkyBlue,
         buttonBackgroundColor: AppColors.logoSkyBlue,
-        height: 60,
-        items: [
-          SizedBox(
-            height: 40,
-            child: Column(
-              children: [
-                const Icon(
-                  Icons.home,
-                  size: 23,
-                  color: AppColors.white,
-                ),
-                Text('Trang chủ',
-                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
-              ],
+        height: 52,
+        items: const [
+          ItemTab(
+            icons: Icon(
+              Icons.home,
+              size: 26,
+              color: AppColors.white,
             ),
+            title: 'Trang chủ',
           ),
-          SizedBox(
-            height: 40,
-            child: Column(
-              children: [
-                const Icon(
-                  Icons.playlist_add,
-                  size: 23,
-                  color: AppColors.white,
-                ),
-                Text('Đăng tin',
-                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
-              ],
+          ItemTab(
+            icons: Icon(
+              Icons.playlist_add,
+              size: 26,
+              color: AppColors.white,
             ),
+            title: 'Đăng tin',
           ),
-          SizedBox(
-            height: 40,
-            child: Column(
-              children: [
-                const Icon(
-                  Icons.language,
-                  size: 23,
-                  color: AppColors.white,
-                ),
-                Text('Bảng tin',
-                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
-              ],
+          ItemTab(
+            icons: Icon(
+              Icons.language,
+              size: 26,
+              color: AppColors.white,
             ),
+            title: 'Bảng tin',
           ),
-          SizedBox(
-            height: 40,
-            child: Column(
-              children: [
-                const Icon(
-                  Icons.person,
-                  size: 23,
-                  color: AppColors.white,
-                ),
-                Text('Cá nhân',
-                    style: AppTextTheme.style10px.copyWith(fontSize: 9))
-              ],
+          ItemTab(
+            icons: Icon(
+              Icons.person,
+              size: 26,
+              color: AppColors.white,
             ),
-          ),
+            title: 'Cá nhân',
+          )
         ],
         onTap: onTapped,
+      ),
+    );
+  }
+}
+
+class ItemTab extends StatelessWidget {
+  final Icon icons;
+  final String title;
+  const ItemTab({Key? key, required this.icons, required this.title})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+      width: 50,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          icons,
+          Text(title, style: AppTextTheme.style10px.copyWith(fontSize: 11))
+        ],
       ),
     );
   }

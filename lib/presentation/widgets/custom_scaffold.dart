@@ -67,6 +67,8 @@ class CustomAppBar extends StatelessWidget {
   final Widget? widgetRight;
   final Widget? widgetRightTwo;
   final Widget? icon;
+  final Color? backgrColor;
+  final TextStyle? styleTitle;
 
   const CustomAppBar({
     Key? key,
@@ -78,11 +80,14 @@ class CustomAppBar extends StatelessWidget {
     this.widgetRight,
     this.showIconLeft = true,
     this.widgetRightTwo,
+    this.backgrColor,
+    this.styleTitle,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: backgrColor ?? AppColors.white,
       width: double.infinity,
       padding: EdgeInsets.only(top: (DCDScreenUtil.statusBarHeight)),
       height: defaultAppbar + (DCDScreenUtil.statusBarHeight),
@@ -118,7 +123,7 @@ class CustomAppBar extends StatelessWidget {
               title,
               maxLines: 2,
               textAlign: TextAlign.left,
-              style: AppTextTheme.mediumBlack,
+              style: styleTitle ?? AppTextTheme.mediumBlack,
             ),
           ),
           widgetRightTwo ??
