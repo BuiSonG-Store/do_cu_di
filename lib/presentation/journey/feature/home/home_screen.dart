@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../common/const/string_const.dart';
 import '../../../../common/utils/common_util.dart';
+import '../../../themes/theme_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       customAppBar: CustomAppBar(
           title: CommonUtil.textHelloInHome(),
           showIconLeft: false,
+          styleTitle: AppTextTheme.medium20PxBlack,
           widgetRight: IconButton(
             onPressed: _goToCart,
             icon: const Icon(Icons.shopping_cart),
@@ -36,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BannerHomeWidget(),
           Expanded(
             child: TabViewBottom(
-              titleSize: 14.0,
+              titleSize: 15.0,
               height: null,
               titlesTab: const [
                 StringConst.all,

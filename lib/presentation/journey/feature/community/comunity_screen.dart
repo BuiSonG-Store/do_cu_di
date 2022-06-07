@@ -5,6 +5,8 @@ import 'package:do_cu_di/presentation/themes/theme_color.dart';
 import 'package:do_cu_di/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 
+import '../../../themes/theme_text.dart';
+
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
       customAppBar: const CustomAppBar(
         title: 'Bảng tin cộng đồng',
         showIconLeft: false,
+        styleTitle: AppTextTheme.medium20PxBlack,
       ),
       body: SingleChildScrollView(
         child: Column(
