@@ -1,3 +1,5 @@
+import 'package:do_cu_di/common/navigation/route_names.dart';
+import 'package:do_cu_di/presentation/routes.dart';
 import 'package:do_cu_di/presentation/themes/theme_color.dart';
 import 'package:do_cu_di/presentation/themes/theme_text.dart';
 import 'package:do_cu_di/presentation/widgets/custom_gesturedetactor.dart';
@@ -18,7 +20,9 @@ class PersonalScreen extends StatefulWidget {
 
 class _PersonalScreenState extends State<PersonalScreen> {
   void _editProfile() {}
-  void _onSetting() {}
+  void _onSetting() {
+    Routes.instance.navigateTo(RouteName.settingScreen);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +46,12 @@ class _PersonalScreenState extends State<PersonalScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: AppColors.colorsGradient,
-            )),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: AppColors.colorsGradient,
+              ),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,

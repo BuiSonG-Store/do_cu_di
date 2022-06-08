@@ -92,14 +92,14 @@ class ItemTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
-      width: 50,
+      height: 52,
+      width: 52,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           icons,
-          Text(title, style: AppTextTheme.style10px.copyWith(fontSize: 11))
+          Text(title, style: AppTextTheme.style10px.copyWith(fontSize: 10))
         ],
       ),
     );

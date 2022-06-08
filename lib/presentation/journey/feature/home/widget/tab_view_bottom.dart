@@ -48,26 +48,31 @@ class _TabViewBottomState extends State<TabViewBottom> {
       child: Column(
         children: [
           Container(
-            color: widget.backGrBlue
-                ? AppColors.logoSkyBlue.withOpacity(0.7)
-                : AppColors.white,
+            margin: const EdgeInsets.symmetric(horizontal: 12),
             width: double.infinity,
             height: defaultTabBarHeight,
+            decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(25.0),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 3.0,
+                  ),
+                ]),
             child: TabBar(
               isScrollable: true,
-              unselectedLabelColor:
-                  widget.backGrBlue ? AppColors.white : AppColors.grey7,
+              unselectedLabelColor: AppColors.logoSkyBlue,
               controller: widget.tabController,
-              labelColor: AppColors.logoSkyBlue,
+              labelColor: AppColors.white,
               physics: widget.neverScroll
                   ? const NeverScrollableScrollPhysics()
                   : null,
-              indicatorColor: AppColors.logoSkyBlue,
               indicator: widget.backGrBlue
-                  ? const BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(25)))
+                  ? BoxDecoration(
+                      color: AppColors.logoSkyBlue,
+                      borderRadius: BorderRadius.circular(25.0),
+                    )
                   : null,
               overlayColor: MaterialStateProperty.all(AppColors.logoSkyBlue),
               tabs: widget.titlesTab!.map((value) {

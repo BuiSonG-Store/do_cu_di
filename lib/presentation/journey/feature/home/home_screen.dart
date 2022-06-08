@@ -35,11 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
       body: Column(
         children: [
-          BannerHomeWidget(),
+          const BannerHomeWidget(),
           Expanded(
             child: TabViewBottom(
               titleSize: 15.0,
               height: null,
+              backGrBlue: true,
+              neverScroll: true,
               titlesTab: const [
                 StringConst.all,
                 StringConst.liquidation,
@@ -51,10 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [],
                   ),
                 ),
-                SingleChildScrollView(
+                const SingleChildScrollView(
                   child: Text('2'),
                 ),
-                SingleChildScrollView(
+                const SingleChildScrollView(
                   child: Text('3'),
                 ),
               ],
