@@ -12,4 +12,6 @@ class IconConst {
   static const String share_activity = '${_path}activity.png';
   static const String update = '${_path}update.png';
   static const String logout = '${_path}logout.png';
+  static const String car = 'assets/icons/car.svg';
+  static const String oldBgDiscount = '${_path}old_bg_discount.svg';
 }

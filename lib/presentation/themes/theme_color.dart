@@ -79,11 +79,18 @@ class AppColors {
   static const Color colorGive = Color(0xff21BFCA);
   static const Color colorLiquidation = Color(0xff0db996);
   static const Color colorPurName = Color(0xff057fb4);
+  static const Color colorPrice = Color(0xffef1212);
 
   static List<Color> colorsGradient = [
     logoSkyBlue,
     logoSkyBlue.withOpacity(0.9),
     logoSkyBlue.withOpacity(0.8),
     logoSkyBlue.withOpacity(0.7),
+  ];
+
+
+  static List<Color> colorLiquidationcolorsGradientLiquidation = [
+    const Color(0xffef3773),
+    const Color(0xff21bfca),
   ];
 }

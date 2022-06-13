@@ -27,6 +27,7 @@ class StringConst {
   static const String notAllow = 'Không cho phép';
   static const String appName = 'Đồ cũ đi';
   static const String login = 'Đăng nhập';
+  static const String logOut = 'Đăng xuất';
   static const String register = 'Đăng ký';
   static const String fillUserName = 'Nhập điện thoại hoặc tên đăng nhập...';
   static const String password = 'Mật khẩu';
@@ -35,9 +36,19 @@ class StringConst {
   static const String youHaveAcc = 'Bạn đã có tài khoản';
   static const String nameUser = 'Tên của bạn';
   static const String gift = 'Cho tặng';
-  static const String liquidation = 'Thanh lý';
   static const String all = 'Tất cả';
 
   static const String receipts = 'Lượt nhận';
   static const String liquidationOrder = 'Đơn thanh lý';
+
+
+  static const String updatePersonalInformation = 'Cập nhật thông tin cá nhân';
+  static const String settings = 'Cài đặt';
+  static const String more = 'Xem thêm';
+
+  static const String help = 'Cần giúp đỡ';
+  static const String give = 'Cho tặng';
+  static const String liquidation = 'Thanh lý';
+
+
 }
