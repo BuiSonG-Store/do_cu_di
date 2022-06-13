@@ -92,4 +92,40 @@ class CommonUtil {
     }
     return dateFormatText.format(dateTime);
   }
+
+  static String getTwoCharOfName(String? name) {
+    try {
+      if (name == null || name.isEmpty) {
+        return '';
+      }
+      List<String> listChar = name.trim().split(' ');
+      if (listChar.length == 1) {
+        if (listChar[0].length == 1) {
+          return listChar[0].toUpperCase();
+        } else {
+          return listChar[0].substring(0, 2).toUpperCase();
+        }
+      }
+      return '${listChar[0].substring(0, 1)}${listChar.last.substring(0, 1)}'
+          .toUpperCase();
+    } catch (_) {
+      return name ?? '';
+    }
+  }
+
+
+  static int countNumberRowOfGridview(List? data) {
+    if (data?.isEmpty ?? true) {
+      return 1;
+    }
+    if (data!.length % 2 == 0) {
+      return data.length ~/ 2;
+    }
+    return (data.length + 1) ~/ 2;
+  }
+
+  static bool isPhone() {
+    final data = MediaQueryData.fromWindow(WidgetsBinding.instance!.window);
+    return data.size.shortestSide < 600;
+  }
 }

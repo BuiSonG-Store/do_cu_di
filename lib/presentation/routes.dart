@@ -11,6 +11,7 @@ import 'injector_container.dart';
 import 'journey/authentication/login/login_screen.dart';
 import 'journey/feature/screens/splash_screen.dart';
 import 'journey/feature/setting/setting_screen.dart';
+import 'journey/feature/setting/update_information/update_ersonal_information_screen.dart';
 import 'journey/feature/webview/webview_screen.dart';
 
 class Routes {
@@ -86,6 +87,11 @@ class Routes {
       case RouteName.settingScreen:
         return CupertinoPageRoute(
           builder: (context) => SettingScreen(),
+        );
+
+      case RouteName.updateInformationScreen:
+        return CupertinoPageRoute(
+          builder: (context) => UpdateInformationScreen(),
         );
 
       default:

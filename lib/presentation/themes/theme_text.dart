@@ -239,6 +239,13 @@ class AppTextTheme {
     fontFamily: 'Nunito',
   );
 
+  static const smallNunito = TextStyle(
+    color: Colors.black,
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
+    fontFamily: "Nunito",
+  );
+
   // Hotfix scale font design, chữ bé hơn 1.3 lần
   static double scaleFont(double input) {
     return input * 1.3;
