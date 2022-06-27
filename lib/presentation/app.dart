@@ -4,11 +4,12 @@ import 'package:do_cu_di/presentation/widgets/loading_container.dart';
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../common/bloc/snackbar_bloc/snackbar_bloc.dart';
 import '../common/bloc/snackbar_bloc/snackbar_state.dart';
+import '../common/const/app_const.dart';
 import '../common/navigation/route_names.dart';
-import '../common/utils/ScreenUtil.dart';
 import 'injector_container.dart';
 
 class App extends StatefulWidget {
@@ -57,7 +58,7 @@ class _AppState extends State<App> {
             Icons.error_outline,
             color: Colors.white,
           );
-          color = Color(0xffF63E43);
+          color = const Color(0xffF63E43);
           title = "Failed";
           break;
       }
@@ -85,7 +86,7 @@ class _AppState extends State<App> {
               ),
               content: Text(
                 state.mess!,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               icon: icon,
               shouldIconPulse: true,
@@ -101,36 +102,39 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: _getProviders(),
-      child: MaterialApp(
-        navigatorKey: Routes.instance.navigatorKey,
-        debugShowCheckedModeBanner: false,
-        title: 'Cintex',
-        onGenerateRoute: Routes.generateRoute,
-        initialRoute: RouteName.splashScreen,
-        theme: ThemeData(
-            primaryColor: AppColors.primaryColor,
-            fontFamily: 'Roboto',
-            canvasColor: Colors.transparent,
-            bottomAppBarColor: const Color(0xff989898),
-            platform: TargetPlatform.iOS,
-            pageTransitionsTheme: const PageTransitionsTheme(builders: {
-              TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-              TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-            })),
-        builder: (context, widget) {
-          ScreenUtil.init(context);
-          return LoadingContainer(
-            child: MultiBlocListener(
-              listeners: _getBlocListener(context),
-              child: GestureDetector(
-                child: widget ?? const SizedBox(),
-                onTap: () {
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
+      child: ScreenUtilInit(
+        designSize: Size(CommonConst.widthDesign, CommonConst.heightDesign),
+        builder: (BuildContext context, child) => MaterialApp(
+          navigatorKey: Routes.instance.navigatorKey,
+          debugShowCheckedModeBanner: false,
+          title: 'Đồ cũ đi',
+          onGenerateRoute: Routes.generateRoute,
+          initialRoute: RouteName.splashScreen,
+          theme: ThemeData(
+              primaryColor: AppColors.primaryColor,
+              fontFamily: 'Nunito',
+              canvasColor: Colors.transparent,
+              bottomAppBarColor: const Color(0xff989898),
+              platform: TargetPlatform.iOS,
+              pageTransitionsTheme: const PageTransitionsTheme(builders: {
+                TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+                TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+              })),
+          builder: (context, widget) {
+            ScreenUtil.init(context);
+            return LoadingContainer(
+              child: MultiBlocListener(
+                listeners: _getBlocListener(context),
+                child: GestureDetector(
+                  child: widget ?? const SizedBox(),
+                  onTap: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

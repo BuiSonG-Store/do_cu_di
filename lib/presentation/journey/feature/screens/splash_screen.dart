@@ -35,9 +35,9 @@ class _SplashScreenState extends State<SplashScreen> {
     if (dataProfile?.isNotEmpty ?? false) {
       injector<AppCache>().profileModel =
           ProfileModel.fromJson(json.decode(dataProfile!));
-      Routes.instance.navigateAndRemove(RouteName.ContainerScreen);
+      Routes.instance.navigateAndRemove(RouteName.containerScreen);
     } else {
-      Routes.instance.navigateAndRemove(RouteName.loginScreen);
+      Routes.instance.navigateAndRemove(RouteName.containerScreen);
     }
   }
 

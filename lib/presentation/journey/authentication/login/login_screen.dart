@@ -38,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppColors.white,
       customAppBar: const CustomAppBar(
         title: StringConst.login,
+        showIconLeft: false,
       ),
       body: Container(
         color: AppColors.white,

@@ -80,10 +80,10 @@ class AppColors {
   static const Color colorLiquidation = Color(0xff0db996);
   static const Color colorPurName = Color(0xff057fb4);
 
-  static const List<Color> colorsGradient = [
-    logoPink,
-    logoYellow,
-    logoGreen,
-    logoSkyBlue
+  static List<Color> colorsGradient = [
+    logoSkyBlue,
+    logoSkyBlue.withOpacity(0.9),
+    logoSkyBlue.withOpacity(0.8),
+    logoSkyBlue.withOpacity(0.7),
   ];
 }

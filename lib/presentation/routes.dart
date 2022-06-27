@@ -1,5 +1,5 @@
 import 'package:do_cu_di/presentation/journey/authentication/register/register_screen.dart';
-import 'package:do_cu_di/presentation/journey/feature/screens/container_screen.dart';
+import 'package:do_cu_di/presentation/journey/feature/container/container_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +10,7 @@ import '../common/utils/log_util.dart';
 import 'injector_container.dart';
 import 'journey/authentication/login/login_screen.dart';
 import 'journey/feature/screens/splash_screen.dart';
+import 'journey/feature/setting/setting_screen.dart';
 import 'journey/feature/webview/webview_screen.dart';
 
 class Routes {
@@ -61,7 +62,7 @@ class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     LOG.d('LOG ROUTE_NAVIGATOR: ${settings.name}');
     switch (settings.name) {
-      case RouteName.WebViewScreen:
+      case RouteName.webViewScreen:
         return CupertinoPageRoute(
           builder: (context) =>
               WebViewScreen(url: settings.arguments as String),
@@ -70,7 +71,7 @@ class Routes {
         return CupertinoPageRoute(
           builder: (context) => SplashScreen(),
         );
-      case RouteName.ContainerScreen:
+      case RouteName.containerScreen:
         return CupertinoPageRoute(
           builder: (context) => ContainerScreen(),
         );
@@ -81,6 +82,10 @@ class Routes {
       case RouteName.registerScreen:
         return CupertinoPageRoute(
           builder: (context) => RegisterScreen(),
+        );
+      case RouteName.settingScreen:
+        return CupertinoPageRoute(
+          builder: (context) => SettingScreen(),
         );
 
       default:

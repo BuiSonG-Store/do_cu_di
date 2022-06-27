@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common/const/logo_const.dart';
-import '../../common/utils/ScreenUtil.dart';
+import '../../common/utils/screen_utils.dart';
 import '../../common/utils/common_util.dart';
 import '../routes.dart';
 import '../themes/theme_color.dart';
@@ -34,22 +34,25 @@ class CustomScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor ?? AppColors.white,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? true,
-      body: Column(
-        children: [
-          customAppBar ??
-              (appbarWidget ?? SizedBox(height: ScreenUtil.statusBarHeight)),
-          const Divider(height: 1, color: AppColors.grey5),
-          Expanded(
-            child: GestureDetector(
-                onTap: autoDismissKeyboard
-                    ? () {
-                        CommonUtil.dismissKeyBoard(context);
-                      }
-                    : () {},
-                child: body ?? const SizedBox()),
-          ),
-          SizedBox(height: paddingBottom ? ScreenUtil.bottomBarHeight : 0),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            customAppBar ??
+                (appbarWidget ??
+                    SizedBox(height: DCDScreenUtil.statusBarHeight)),
+            const Divider(height: 1, color: AppColors.grey5),
+            Expanded(
+              child: GestureDetector(
+                  onTap: autoDismissKeyboard
+                      ? () {
+                          CommonUtil.dismissKeyBoard(context);
+                        }
+                      : () {},
+                  child: body ?? const SizedBox()),
+            ),
+            SizedBox(height: paddingBottom ? DCDScreenUtil.bottomBarHeight : 0),
+          ],
+        ),
       ),
     );
   }
@@ -62,7 +65,10 @@ class CustomAppBar extends StatelessWidget {
   final bool stylePrimary;
   final bool hasShadow;
   final Widget? widgetRight;
+  final Widget? widgetRightTwo;
   final Widget? icon;
+  final Color? backgrColor;
+  final TextStyle? styleTitle;
 
   const CustomAppBar({
     Key? key,
@@ -73,14 +79,18 @@ class CustomAppBar extends StatelessWidget {
     this.hasShadow = true,
     this.widgetRight,
     this.showIconLeft = true,
+    this.widgetRightTwo,
+    this.backgrColor,
+    this.styleTitle,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: backgrColor ?? AppColors.white,
       width: double.infinity,
-      padding: EdgeInsets.only(top: (ScreenUtil.statusBarHeight)),
-      height: defaultAppbar + (ScreenUtil.statusBarHeight),
+      padding: EdgeInsets.only(top: (DCDScreenUtil.statusBarHeight)),
+      height: defaultAppbar + (DCDScreenUtil.statusBarHeight),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -113,13 +123,17 @@ class CustomAppBar extends StatelessWidget {
               title,
               maxLines: 2,
               textAlign: TextAlign.left,
-              style: AppTextTheme.mediumBlack,
+              style: styleTitle ?? AppTextTheme.mediumBlack,
             ),
           ),
+          widgetRightTwo ??
+              const SizedBox(
+                width: 60,
+              ),
           widgetRight ??
               const SizedBox(
                 width: 60,
-              )
+              ),
         ],
       ),
     );
